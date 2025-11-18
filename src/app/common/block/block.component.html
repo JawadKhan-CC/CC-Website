@@ -1,0 +1,14 @@
+<div class="relative group w-[360px] h-[140px] rounded-lg shadow-md overflow-hidden">
+
+  <div class="flex items-center bg-gradient-to-r from-[#090979] to-[#00d4ff] text-white  w-full h-full px-6">
+    <img [src]="imageUrl" alt="{{ name }}" class="w-20 h-20 mr-6 flex-shrink-0" />
+    <span class="text-2xl font-semibold">{{ name }}</span>
+  </div>
+
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-[#090979] to-[#00d4ff] text-white  bg-opacity-60 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300
+           flex items-center justify-center p-4 text-center">
+    {{ content }}
+  </div>
+
+</div>

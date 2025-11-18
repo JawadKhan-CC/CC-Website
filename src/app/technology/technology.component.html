@@ -1,0 +1,15 @@
+<div *ngFor="let category of data" class="mb-16">
+  <h1 class="text-4xl font-bold text-center mt-6">{{ category.title }}</h1>
+
+  <div class="w-full flex justify-center mt-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <app-block
+        *ngFor="let item of category.items"
+        [name]="item.name"
+        [imageUrl]="item.imageUrl"
+        [content]="item.content"
+      >
+      </app-block>
+    </div>
+  </div>
+</div>

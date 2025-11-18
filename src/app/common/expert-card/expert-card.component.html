@@ -1,0 +1,52 @@
+<!-- Card Container -->
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl border border-gray-100 h-full flex flex-col">
+<!-- Image & Experience Badge -->
+<div class="relative h-48 bg-gray-100 overflow-hidden flex-shrink-0">
+<!-- Placeholder image URL is used for the profile image -->
+<img [src]="profileImage" class="w-full h-full object-cover" alt="Profile image for {{ name }}" />
+<!-- Experience Badge -->
+<div class="absolute top-4 left-4 bg-yellow-400 text-gray-800 text-xs font-bold px-3 py-1 rounded-full shadow-md">
+Exp. {{ experience }}+
+</div>
+</div>
+
+<!-- Content (flex-grow for equal height) -->
+
+<div class="p-4 md:p-5 text-center flex flex-col flex-grow">
+<!-- Name -->
+<h3 class="text-xl font-bold text-gray-900 mt-2">{{ name }}</h3>
+<!-- Role -->
+<p class="text-sm text-gray-500 mb-4 h-10 flex items-center justify-center flex-shrink-0">{{ role }}</p>
+
+<!-- Scores (Pushed to bottom using mt-auto) -->
+<div class="space-y-1 mt-auto mb-4 text-sm font-medium text-gray-700">
+  <div class="flex justify-between items-start px-2">
+    <span class="font-semibold">Communication Score</span>
+    <span class="text-green-600 font-bold">{{ communicationScore  }}/5.0</span>
+  </div>
+  <div class="flex justify-between items-start px-3">
+    <span class="font-semibold">Technical Score</span>
+    <span class="text-green-600 font-bold">{{ technicalScore }}/5.0</span>
+  </div>
+</div>
+
+<!-- Buttons (flex-shrink-0 to keep them at the bottom) -->
+<div class="space-y-3 pt-2 flex-shrink-0">
+  <!-- View Profile Button (White background, black border/text) -->
+  @if (showProfileButton) {
+    <button class="w-full py-2.5 rounded-lg text-sm font-semibold border-2 border-gray-800 text-gray-800 bg-white transition hover:bg-gray-100 shadow-sm">
+      View Profile
+    </button>
+  }
+  <!-- Hire Now Button (Black background, white text) -->
+  @if (showHireButton) {
+    <button class="w-full py-2.5 rounded-lg text-sm font-semibold bg-gray-800 text-white transition hover:bg-gray-700 shadow-md">
+      Hire Now
+    </button>
+  }
+</div>
+
+
+</div>
+</div>

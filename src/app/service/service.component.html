@@ -1,0 +1,78 @@
+<div class="p-4 sm:p-6 lg:p-8 min-h-screen bg-gray-50">
+  
+<h1 class="text-3xl font-extrabold text-gray-900 mb-6 md:mb-10 text-center">Top Expert Marketplace</h1>
+
+<div class="container mx-auto px-4 py-6">
+
+<!-- GRID: 6 columns, responsive, 18 items per page (based on PAGE_SIZE = 18) -->
+
+<!-- Grid classes updated to start with 3 columns (sm:grid-cols-3) and scale up to 6 columns (xl:grid-cols-6) -->
+
+<div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+
+@for (expert of paginatedExperts(); track trackById($index, expert)) {
+<app-expert-card
+[name]="expert.name"
+[role]="expert.role"
+[experience]="expert.experience"
+[profileImage]="expert.profileImage"
+[communicationScore]="expert.communicationScore"
+[technicalScore]="expert.technicalScore"
+[showHireButton]="expert.showHireButton"
+[showProfileButton]="expert.showProfileButton">
+</app-expert-card>
+}
+@empty {
+<p class="col-span-full text-center text-gray-500 text-lg">No experts found in this selection.</p>
+}
+
+</div>
+
+<!-- PAGINATION - Only show if there is more than 1 page -->
+
+@if (totalPages() > 1) {
+
+<div class="flex justify-center items-center gap-4 mt-10">
+
+<!-- PREV BUTTON -->
+<button
+  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white disabled:opacity-40 transition-colors"
+  (click)="prevPage()"
+  [disabled]="currentPage() === 1">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+  </svg>
+</button>
+
+<!-- PAGE NUMBERS -->
+<div class="flex gap-2 text-lg font-medium">
+  @for (page of pages(); track $index) {
+    <button
+      (click)="goToPage(page)"
+      class="w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-200"
+      [class.bg-yellow-400]="currentPage() === page"
+      [class.text-black]="currentPage() === page"
+      [class.bg-white]="currentPage() !== page"
+      [class.text-gray-700]="currentPage() !== page"
+      [class.hover:bg-yellow-200]="currentPage() !== page">
+      {{ page }}
+    </button>
+  }
+</div>
+
+<!-- NEXT BUTTON -->
+<button
+  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white disabled:opacity-40 transition-colors"
+  (click)="nextPage()"
+  [disabled]="currentPage() === totalPages()">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+  </svg>
+</button>
+
+
+</div>
+}
+
+</div>
+</div>

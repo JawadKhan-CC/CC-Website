@@ -1,14 +1,28 @@
-<div class="relative group w-[360px] h-[140px] rounded-lg shadow-md overflow-hidden">
+<div
+  class="group w-[360px] rounded-lg shadow-lg overflow-hidden
+         bg-gradient-to-r from-[#090979] to-[#00d4ff]
+         transition-all duration-500 ease-out">
 
-  <div class="flex items-center bg-gradient-to-r from-[#090979] to-[#00d4ff] text-white  w-full h-full px-6">
-    <img [src]="imageUrl" alt="{{ name }}" class="w-20 h-20 mr-6 flex-shrink-0" />
-    <span class="text-2xl font-semibold">{{ name }}</span>
+  <!-- Expanding container -->
+  <div class="transition-all duration-500 ease-out 
+              h-[140px] group-hover:h-auto">
+
+    <!-- Header -->
+    <div class="flex items-center text-white px-6 py-4">
+      <img [src]="imageUrl" alt="{{ name }}" class="w-20 h-20 mr-6" />
+      <span class="text-2xl font-semibold">{{ name }}</span>
+    </div>
+
+    <!-- Content -->
+    <div
+      class="opacity-0 group-hover:opacity-100 
+             transform -translate-y-2 group-hover:translate-y-0
+             transition-all duration-500 ease-out
+             px-6 pb-4 text-left text-white">
+      
+      <p class="whitespace-pre-line leading-relaxed">
+        {{ content }}
+      </p>
+    </div>
   </div>
-
-  <div
-    class="absolute inset-0 bg-gradient-to-r from-[#090979] to-[#00d4ff] text-white  bg-opacity-60 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300
-           flex items-center justify-center p-4 text-center">
-    {{ content }}
-  </div>
-
 </div>

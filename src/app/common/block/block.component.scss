@@ -1,0 +1,13 @@
+/* Ensure that the content area expands smoothly and remains flexible */
+.relative {
+  transition: height 0.3s ease, transform 0.3s ease;
+}
+
+.group:hover .relative {
+  height: auto; /* Allow the height to grow dynamically */
+}
+
+.group:hover .absolute {
+  max-height: 100%; /* Allow the content to be fully visible */
+  overflow: visible; /* Ensure content isn't cut off */
+}

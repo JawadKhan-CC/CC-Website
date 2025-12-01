@@ -40,9 +40,9 @@
       We don't just deliver projects – we build partnerships that drive lasting transformation.
     </p>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-8 cards-container">
       <div *ngFor="let card of featureCards"
-        class="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+        class="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow slide-fade">
         <div class="flex justify-center mb-6">
           <!-- Your image goes here -->
           <img [src]="card.image" alt="{{ card.title }}" class="w-12 h-12 object-contain" />

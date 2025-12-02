@@ -1,7 +1,8 @@
 <section class="bg-[linear-gradient(90deg,rgba(9,9,121,1)_0%,rgba(0,212,255,1)_93%)] text-white py-20 px-4">
   <div class="max-w-7xl mx-auto text-center">
     <h2 class="text-3xl font-semibold mb-4">Let's <span class="font-bold">Connect</span></h2>
-    <p class="text-lg mb-8">Transform your vision into reality. Reach out to discuss how our innovative solutions can drive your business forward.</p>
+    <p class="text-lg mb-8">Transform your vision into reality. Reach out to discuss how our innovative solutions can
+      drive your business forward.</p>
   </div>
 </section>
 
@@ -26,8 +27,7 @@
             <label class="text-sm font-semibold text-gray-700 flex items-center gap-1">
               <img src="person.png" class="w-4 h-4"> Full Name
             </label>
-            <input type="text" name="fullName" ngModel required
-              placeholder="Your full name"
+            <input type="text" name="fullName" ngModel required placeholder="Your full name"
               class="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-red-400 outline-none">
           </div>
 
@@ -36,8 +36,7 @@
             <label class="text-sm font-semibold text-gray-700 flex items-center gap-1">
               <img src="mail.png" class="w-4 h-4"> Email Address
             </label>
-            <input type="email" name="email" ngModel required
-              placeholder="your.email@company.com"
+            <input type="email" name="email" ngModel required placeholder="your.email@company.com"
               class="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-red-400 outline-none">
           </div>
 
@@ -46,8 +45,7 @@
             <label class="text-sm font-semibold text-gray-700 flex items-center gap-1">
               <img src="phone.png" class="w-4 h-4"> Phone Number
             </label>
-            <input type="text" name="phone" ngModel required
-              placeholder="+1 (555) 123-4567"
+            <input type="text" name="phone" ngModel required placeholder="+1 (555) 123-4567"
               class="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-red-400 outline-none">
           </div>
 
@@ -56,8 +54,7 @@
             <label class="text-sm font-semibold text-gray-700 flex items-center gap-1">
               <img src="company.png" class="w-4 h-4"> Company
             </label>
-            <input type="text" name="company" ngModel
-              placeholder="Your company name"
+            <input type="text" name="company" ngModel placeholder="Your company name"
               class="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-red-400 outline-none">
           </div>
 
@@ -83,8 +80,7 @@
           <label class="text-sm font-semibold text-gray-700 flex items-center gap-1">
             <img src="project.png" class="w-4 h-4"> Project Details
           </label>
-          <textarea rows="4" name="details" ngModel required
-            placeholder="Describe your project requirements..."
+          <textarea rows="4" name="details" ngModel required placeholder="Describe your project requirements..."
             class="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-red-400 outline-none"></textarea>
         </div>
 
@@ -128,4 +124,52 @@
     </div>
 
   </div>
+
+  <!-- SUCCESS POPUP -->
+  <div *ngIf="showSuccess" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 animate-fadeIn">
+    <div class="bg-white rounded-2xl p-8 w-[90%] max-w-md text-center shadow-xl">
+
+      <img src="https://uxwing.com/wp-content/themes/uxwing/download/checkmark-cross/done-icon.png" alt="Correct Cloud" class="h-12 mx-auto mb-4">
+
+      <h2 class="text-2xl font-bold text-blue-700 mb-2">
+        Request Sent Successfully!
+      </h2>
+
+      <p class="text-gray-600 mb-6">
+        Thank you for contacting Correct Cloud.<br>
+        Our team will reach out to you shortly.
+      </p>
+
+      <button (click)="closePopup()"
+        class="px-6 py-3 rounded-lg bg-gradient-to-r from-[#090979] to-[#00d4ff] text-white font-semibold">
+        Close
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Error POPUP -->
+  <div *ngIf="showError" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 animate-fadeIn">
+    <div class="bg-white rounded-2xl p-8 w-[90%] max-w-md text-center shadow-xl">
+
+      <img src="https://cdn-icons-png.flaticon.com/512/1304/1304038.png" alt="Correct Cloud" class="h-12 mx-auto mb-4">
+
+      <h2 class="text-2xl font-bold text-red-600 mb-2">
+        Something Went Wrong
+      </h2>
+
+      <p class="text-gray-600 mb-6">
+        We couldn't send your message.<br>
+        Please try again or contact us directly. <br>
+        At hr&#64;correctcloud.io
+      </p>
+
+      <button (click)="closePopup()"
+        class="px-6 py-3 rounded-lg bg-red-500 hover:bg-red-600 text-white font-semibold transition">
+        Close
+      </button>
+
+    </div>
+  </div>
+
 </section>

@@ -6,12 +6,14 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contactus',
-  imports: [RouterModule,CommonModule,FormsModule],
+  imports: [RouterModule, CommonModule, FormsModule],
   templateUrl: './contactus.component.html',
   styleUrl: './contactus.component.scss'
 })
 export class ContactusComponent {
-sendMessage(form: any) {
+  showSuccess = false;
+  showError = true;
+  sendMessage(form: any) {
     if (form.invalid) {
       alert("Please fill all required fields.");
       return;
@@ -32,13 +34,19 @@ sendMessage(form: any) {
 
     emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, PUBLIC_KEY)
       .then((response: EmailJSResponseStatus) => {
-        console.log("SUCCESS!", response.status, response.text);
-        alert("Your message has been sent successfully!");
+        this.showSuccess = true;
+        this.showError = false;
         form.reset();
       })
       .catch((error) => {
-        console.error("FAILED...", error);
-        alert("Something went wrong. Please try again.");
+        this.showError = true;
+        this.showSuccess = false;
       });
   }
+
+  closePopup() {
+    this.showSuccess = false;
+    this.showError = false;
+  }
+
 }

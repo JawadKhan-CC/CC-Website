@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ContactusComponent {
   showSuccess = false;
-  showError = true;
+  showError = false;
   sendMessage(form: any) {
     if (form.invalid) {
       alert("Please fill all required fields.");

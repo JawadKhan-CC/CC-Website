@@ -5,7 +5,7 @@ export const environment = {
     Salunkhe Vihar Road,Wanwadi,
     Pune - 411040
     `,
-    SERVICE_ID : 'service_xs2ukqd',
-    TEMPLATE_ID : 'template_9m26wfs',
-    PUBLIC_KEY :'5mxhH9T9aKQE-X_F8'
+    SERVICE_ID : 'EmailJsService',
+    TEMPLATE_ID : 'ContactUsTemplate',
+    PUBLIC_KEY :'L4p2CQ6ifmu71th2R'
 };
